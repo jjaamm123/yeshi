@@ -8,9 +8,14 @@ const AdminLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (email === 'admin@yeshi.com' && password === 'admin') {
+    
+    // Updated to match your exact intended credentials
+    if (email === 'admin@yeshii.com' && password === 'yeshiiAdmin123!') {
       localStorage.setItem('adminToken', 'dummy-jwt-token');
       navigate('/admin/products');
+    } else {
+      // Prevents the silent failure by warning the user
+      alert('Invalid admin credentials. Please try again.');
     }
   };
 
@@ -39,7 +44,8 @@ const AdminLogin = () => {
               required
             />
           </div>
-          <button type="submit" className="w-full bg-black text-white py-4 uppercase tracking-widest hover:bg-white hover:text-black border border-black transition-colors">
+          {/* Added cursor-pointer to ensure the mouse changes to a hand icon */}
+          <button type="submit" className="cursor-pointer w-full bg-black text-white py-4 uppercase tracking-widest hover:bg-white hover:text-black border border-black transition-colors">
             Enter
           </button>
         </form>
