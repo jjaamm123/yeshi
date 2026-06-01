@@ -13,7 +13,9 @@ const orderSchema = new mongoose.Schema({
     items: [orderItemSchema],
     totalAmount: { type: Number, required: true },
     status: { type: String, enum: ['pending', 'processing', 'shipped', 'delivered', 'cancelled'], default: 'pending' },
-    paymentStatus: { type: String, enum: ['unpaid', 'paid', 'failed', 'refunded'], default: 'unpaid' },
+    paymentMethod: { type: String, enum: ['eSewa', 'Khalti', 'Bank Transfer'], required: true },
+    paymentTransactionId: { type: String },
+    paymentStatus: { type: String, enum: ['Pending', 'Verified', 'Failed'], default: 'Pending' },
     customerDetails: {
         name: { type: String, required: true },
         email: { type: String, required: true },

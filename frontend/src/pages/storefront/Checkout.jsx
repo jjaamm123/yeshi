@@ -1,10 +1,6 @@
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
 import Navbar from '../../components/storefront/Navbar';
 import CheckoutForm from '../../components/storefront/CheckoutForm';
 import { useCart } from '../../context/CartContext';
-
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Checkout = () => {
   const { cartItems, cartTotal } = useCart();
@@ -33,9 +29,7 @@ const Checkout = () => {
         </div>
         
         <div className="md:w-1/2">
-          <Elements stripe={stripePromise}>
-            <CheckoutForm />
-          </Elements>
+          <CheckoutForm />
         </div>
       </div>
     </div>
