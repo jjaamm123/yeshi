@@ -10,12 +10,15 @@ import ProductDetail from './pages/storefront/ProductDetail';
 import Checkout from './pages/storefront/Checkout';
 import CartDrawer from './components/storefront/CartDrawer';
 
+import ShopAll from './pages/storefront/ShopAll';
+
 function App() {
   return (
     <Router>
       <CartDrawer />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/shop/all" element={<ShopAll />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/checkout" element={<Checkout />} />
 
