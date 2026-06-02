@@ -6,6 +6,7 @@ const cors = require('cors');
 const { connectDB } = require('./config/db');
 const adminImageRoutes = require('./routes/adminImageRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.use(express.json());
 
 app.use('/api/admin/images', adminImageRoutes);
 app.use('/api/payments', paymentRoutes);
+app.use('/api/products', productRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 

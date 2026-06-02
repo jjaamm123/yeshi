@@ -15,6 +15,8 @@ const productSchema = new mongoose.Schema({
     name: { type: String, required: true },
     description: { type: String, required: true },
     basePrice: { type: Number, required: true },
+    category: { type: String, enum: ['Apparel', 'Shoes'], required: true },
+    subCategory: { type: String, required: true },
     variations: [variationSchema],
     images: [imageSchema],
     isActive: { type: Boolean, default: true }
