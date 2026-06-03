@@ -9,8 +9,8 @@ import Home from './pages/storefront/Home';
 import ProductDetail from './pages/storefront/ProductDetail';
 import Checkout from './pages/storefront/Checkout';
 import CartDrawer from './components/storefront/CartDrawer';
-
 import ShopAll from './pages/storefront/ShopAll';
+import Footer from './components/storefront/Footer';
 
 function App() {
   return (
@@ -36,6 +36,9 @@ function App() {
           </ProtectedRoute>
         } />
       </Routes>
+
+      {/* Footer — hidden on admin routes */}
+      <Footer />
     </Router>
   );
 }
