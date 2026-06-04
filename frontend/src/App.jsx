@@ -11,16 +11,20 @@ import Checkout from './pages/storefront/Checkout';
 import CartDrawer from './components/storefront/CartDrawer';
 import ShopAll from './pages/storefront/ShopAll';
 import Footer from './components/storefront/Footer';
+import CustomerCare from './pages/storefront/CustomerCare';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <CartDrawer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop/all" element={<ShopAll />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/customer-care" element={<CustomerCare />} />
 
         <Route path="/admin" element={<Navigate to="/admin/products" replace />} />
         <Route path="/admin/login" element={<AdminLogin />} />
