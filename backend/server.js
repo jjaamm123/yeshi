@@ -7,6 +7,7 @@ const { connectDB } = require('./config/db');
 const adminImageRoutes = require('./routes/adminImageRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
 const productRoutes = require('./routes/productRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/api/admin/images', adminImageRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/contact', contactRoutes);
 
 
 const PORT = process.env.PORT || 5000;

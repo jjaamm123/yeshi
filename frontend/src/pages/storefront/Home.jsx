@@ -114,7 +114,7 @@ const Home = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/products');
+        const res = await axios.get('https://yeshi-bg5i.onrender.com/api/products');
         const fetched = res.data.products || res.data;
         setProducts(fetched.slice(0, 6));
       } catch (err) {

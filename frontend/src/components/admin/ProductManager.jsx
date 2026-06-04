@@ -39,7 +39,7 @@ const ProductManager = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/products');
+                const res = await axios.get('https://yeshi-bg5i.onrender.com/api/products');
                 setProducts(res.data.products || res.data || []);
             } catch (error) {
                 console.error('Failed to fetch products for admin:', error);
@@ -164,7 +164,7 @@ const ProductManager = () => {
                 const formData = new FormData();
                 images.forEach(img => formData.append('images', img));
                 // Axios Boundary Fix: no Content-Type header — browser sets it with boundary
-                const uploadRes = await axios.post('http://localhost:5000/api/admin/images/upload', formData);
+                const uploadRes = await axios.post('https://yeshi-bg5i.onrender.com/api/admin/images/upload', formData);
                 finalImages = uploadRes.data.images || [];
             } else {
                 // No new files selected → preserve the existing Cloudinary images
@@ -196,7 +196,7 @@ const ProductManager = () => {
             if (editingProductId) {
                 // UPDATE: PUT to existing product
                 const res = await axios.put(
-                    `http://localhost:5000/api/products/${editingProductId}`,
+                    `https://yeshi-bg5i.onrender.com/api/products/${editingProductId}`,
                     productPayload
                 );
                 const updatedProduct = res.data;
@@ -207,7 +207,7 @@ const ProductManager = () => {
                 alert('Product updated successfully!');
             } else {
                 // CREATE: POST new product
-                const res = await axios.post('http://localhost:5000/api/products', productPayload);
+                const res = await axios.post('https://yeshi-bg5i.onrender.com/api/products', productPayload);
                 const savedProduct = res.data?.product || res.data || { id: Date.now(), ...productPayload };
                 setProducts(prev => [savedProduct, ...prev]);
                 alert('Product created successfully!');

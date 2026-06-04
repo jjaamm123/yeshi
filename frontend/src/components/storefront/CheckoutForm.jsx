@@ -18,7 +18,7 @@ const CheckoutForm = () => {
         productUrl: "http://localhost:5173",
         eventHandler: {
             onSuccess (payload) {
-                axios.post('http://localhost:5000/api/payments/khalti/verify', {
+                axios.post('https://yeshi-bg5i.onrender.com/api/payments/khalti/verify', {
                     token: payload.token,
                     amount: payload.amount
                 }).then(res => {
@@ -47,7 +47,7 @@ const CheckoutForm = () => {
       };
       
       try {
-          await axios.post('http://localhost:5000/api/payments/create-order', orderPayload);
+          await axios.post('https://yeshi-bg5i.onrender.com/api/payments/create-order', orderPayload);
           alert('Order Created Successfully!');
       } catch (e) {
           console.error(e);
@@ -59,7 +59,7 @@ const CheckoutForm = () => {
       const transaction_uuid = Date.now().toString() + Math.random().toString(36).substring(7);
       
       try {
-          const res = await axios.post('http://localhost:5000/api/payments/esewa/sign', {
+          const res = await axios.post('https://yeshi-bg5i.onrender.com/api/payments/esewa/sign', {
               amount: cartTotal / 100, 
               transaction_uuid
           });

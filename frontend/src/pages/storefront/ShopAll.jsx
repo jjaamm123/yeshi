@@ -39,7 +39,7 @@ const ShopAll = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/products');
+        const res = await axios.get('https://yeshi-bg5i.onrender.com/api/products');
         const fetchedProducts = res.data.products || res.data;
         // Assume backend returns array of active products
         setProducts(fetchedProducts);

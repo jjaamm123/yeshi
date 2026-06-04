@@ -29,7 +29,7 @@ const ProductDetail = () => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:5000/api/products/${identifier}`);
+        const res = await axios.get(`https://yeshi-bg5i.onrender.com/api/products/${identifier}`);
         setProduct(res.data);
       } catch (err) {
         console.error('Failed to fetch product', err);

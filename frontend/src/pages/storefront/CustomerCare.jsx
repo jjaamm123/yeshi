@@ -36,7 +36,7 @@ const ContactSection = () => {
     setStatus('loading');
     setErrorMsg('');
     try {
-      await axios.post('http://localhost:5000/api/contact', form);
+      await axios.post('https://yeshi-bg5i.onrender.com/api/contact', form);
       setStatus('success');
       setForm({ name: '', email: '', subject: '', message: '' });
     } catch (err) {

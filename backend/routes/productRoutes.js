@@ -49,6 +49,28 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: 'Server error while fetching products', error: error.message });
     }
 });
+// Update a Product by ID
+router.put('/:id', async (req, res) => {
+    try {
+        const { name, description, basePrice, category, subCategory, variations, images, isActive } = req.body;
+
+        const updatedProduct = await Product.findByIdAndUpdate(
+            req.params.id,
+            { name, description, basePrice, category, subCategory, variations, images, isActive },
+            { new: true, runValidators: true }
+        );
+
+        if (!updatedProduct) {
+            return res.status(404).json({ message: 'Product not found.' });
+        }
+
+        res.status(200).json(updatedProduct);
+    } catch (error) {
+        console.error('Error updating product:', error);
+        res.status(500).json({ message: 'Server error while updating product', error: error.message });
+    }
+});
+
 // Fetch single Product by slug
 router.get('/:slug', async (req, res) => {
     try {
